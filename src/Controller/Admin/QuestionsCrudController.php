@@ -24,7 +24,6 @@ class QuestionsCrudController extends AbstractCrudController
             TextField::new('question', 'Question'),
             yield AssociationField::new('formulaire_id', 'Formulaire')
                 ->setCrudController(FormulairesCrudController::class),
-            // for each new question, we need to create a new question in the database and link it to the formulaire
             IntegerField::new('formulaire_id', 'Formulaire'),
 
         ];
