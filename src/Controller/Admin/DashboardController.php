@@ -44,6 +44,12 @@ class DashboardController extends AbstractDashboardController
         $this->questionsRepository = $questionsRepository;
     }
 
+    public function createEntity(string $entityFqcn)
+    {
+        $formulaire = new Formulaires;
+        $formulaire-> setTitle('Formulaire');
+    }
+
 
     /**
      * @Route("/admin", name="admin")

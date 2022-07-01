@@ -6,6 +6,7 @@ use App\Entity\Questions;
 use App\Entity\Formulaires;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,10 +21,14 @@ class QuestionsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return[
-            TextField::new('question'),
-            AssociationField::new('formulaire'),
+            TextField::new('question', 'Question'),
+            yield AssociationField::new('formulaire_id', 'Formulaire')
+                ->setCrudController(FormulairesCrudController::class),
+            // for each new question, we need to create a new question in the database and link it to the formulaire
+            IntegerField::new('formulaire_id', 'Formulaire'),
 
         ];
+
     }
 
     /*
