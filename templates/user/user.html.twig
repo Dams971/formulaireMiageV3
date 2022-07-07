@@ -1,0 +1,74 @@
+<section class="text-black" style="background-color: #f5f5f5; margin-top:35px; margin-bottom:15px">
+    <div class="container">
+        <form>
+            {{ form_start(formulaireForm) }}
+            <div class="my-custom-class-for-errors">
+                {{ form_errors(formulaireForm) }}
+            </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label>Nom</label>
+                    <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Nom" value={{ app.user.nom }} required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer02">Prénom</label>
+                    <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="{{ app.user.prenom }}" required>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer02">Email</label>
+                    <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="{{ app.user.email }}" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer02">Adresse</label>
+                    <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="{{ app.user.adresse }}" required>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer02">Telephone</label>
+                    <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="{{ app.user.telephone }}" required>
+
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationServer02">Date de naissance : </label>
+                    {{ app.user.dateDeNaissance | date('Y-m-d H:i:s') }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.baccalaureat) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.candidaterAutresFormations) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.stageEntreprise) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.adresseDesParents) }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.premierAnnee) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.deuxiemeAnnee) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.diplomeObtenu) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.etreBts) }}
+                </div>
+                <div class="col-md-8 mb-6">
+                    {{ form_row(formulaireForm.contactEntreprise) }}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form_row(formulaireForm.agreeTerms) }}
+                </div>
+            </div>
+            {{ form_row(formulaireForm.submit) }}
+            {{ form_end(formulaireForm) }}
+
+
+        </form>
+    </div>
+</section>

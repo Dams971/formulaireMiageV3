@@ -1,0 +1,10 @@
+{% extends 'baseFormulaire.html.twig' %}
+{% block title %}Formulaire d'inscription MIAGE !
+{% endblock %}
+
+{% block body %}
+    {{ form_start(formulaireForm) }}
+    {{ form_errors(formulaireForm) }}
+    {{ form_widget(formulaireForm) }}
+    {{ form_end(formulaireForm) }}
+{% endblock %}

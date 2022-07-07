@@ -13,13 +13,13 @@
                     <a class="nav-link mx-2" href="{{ path('app_home') }}"><i class="fas fa-plus-circle pe-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#!"><i class="fas fa-bell pe-2"></i>A propos</a>
+                    <a class="nav-link mx-2" href="{{ path('app_apropos') }}"><i class="fas fa-bell pe-2"></i>A propos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#!"><i class="fas fa-heart pe-2"></i>F.A.Q</a>
+                    <a class="nav-link mx-2" href="{{path('app_faq')}}"><i class="fas fa-heart pe-2"></i>F.A.Q</a>
                 </li>
                 <li class="nav-item ms-3">
-                    <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" href="#!">Inscription</a>
+                    <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" href="{{ path('app_register') }}">Inscription</a>
                 </li>
                 <li class="nav-item ms-3">
                     <a class="navbar-btn btn btn-sm btn-primary lift ms-auto" href="{{ path('app_login') }}">Connexion</a>

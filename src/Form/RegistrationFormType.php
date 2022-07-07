@@ -24,7 +24,7 @@ class RegistrationFormType extends AbstractType
             ->add('adresse')
             ->add('telephone')
             ->add('email')
-            ->add('dateOfBirth', DateType::class ,[
+            ->add('dateDeNaissance', DateType::class ,[
                 'years' => range(1980, 2040),
             ])
             ->add('agreeTerms', CheckboxType::class, [
@@ -40,6 +40,8 @@ class RegistrationFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
+                // label displayed
+                'label' => 'Mot de passe',
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',

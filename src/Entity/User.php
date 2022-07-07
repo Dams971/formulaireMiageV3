@@ -62,13 +62,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateOfBirth;
+    private $dateDeNaissance;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reponses::class, mappedBy="user")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $reponses;
-    private $doctrine;
+    private $adresseDesParents;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Baccalaureat;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $premierAnnee;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $deuxiemeAnnee;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $diplomeObtenu;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $candidaterAutresFormations;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $stageEntreprise;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $etreBts;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $contactEntreprise;
+
 
     public function __construct()
     {
@@ -239,50 +279,131 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getDateOfBirth(): ?\DateTimeInterface
+    public function getdateDeNaissance(): ?\DateTimeInterface
     {
-        return $this->dateOfBirth;
+        return $this->dateDeNaissance;
     }
 
-    public function setDateOfBirth(\DateTimeInterface $dateOfBirth): self
+    public function setdateDeNaissance(\DateTimeInterface $dateDeNaissance): self
     {
-        $this->dateOfBirth = $dateOfBirth;
+        $this->dateDeNaissance = $dateDeNaissance;
 
         return $this;
     }
 
-    /**
-     * @return Collection<int, Reponses>
-     */
-    public function getReponses(): Collection
-    {
-        return $this->reponses;
-    }
 
-    public function addReponse(Reponses $reponse): self
-    {
-        if (!$this->reponses->contains($reponse)) {
-            $this->reponses[] = $reponse;
-            $reponse->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReponse(Reponses $reponse): self
-    {
-        if ($this->reponses->removeElement($reponse)) {
-            // set the owning side to null (unless already changed)
-            if ($reponse->getUser() === $this) {
-                $reponse->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     private function getDoctrine()
     {
         return $this->doctrine;
     }
+
+    public function getadresseDesParents(): ?string
+    {
+        return $this->adresseDesParents;
+    }
+
+    public function setadresseDesParents(?string $adresseDesParents): self
+    {
+        $this->adresseDesParents = $adresseDesParents;
+
+        return $this;
+    }
+
+    public function getBaccalaureat(): ?string
+    {
+        return $this->Baccalaureat;
+    }
+
+    public function setBaccalaureat(?string $Baccalaureat): self
+    {
+        $this->Baccalaureat = $Baccalaureat;
+
+        return $this;
+    }
+
+    public function getpremierAnnee(): ?string
+    {
+        return $this->premierAnnee;
+    }
+
+    public function setpremierAnnee(?string $premierAnnee): self
+    {
+        $this->premierAnnee = $premierAnnee;
+
+        return $this;
+    }
+
+    public function getdeuxiemeAnnee(): ?string
+    {
+        return $this->deuxiemeAnnee;
+    }
+
+    public function setdeuxiemeAnnee(?string $deuxiemeAnnee): self
+    {
+        $this->deuxiemeAnnee = $deuxiemeAnnee;
+
+        return $this;
+    }
+
+    public function getdiplomeObtenu(): ?string
+    {
+        return $this->diplomeObtenu;
+    }
+
+    public function setdiplomeObtenu(?string $diplomeObtenu): self
+    {
+        $this->diplomeObtenu = $diplomeObtenu;
+
+        return $this;
+    }
+
+    public function isCandidaterAutresFormations(): ?bool
+    {
+        return $this->candidaterAutresFormations;
+    }
+
+    public function setCandidaterAutresFormations(?bool $candidaterAutresFormations): self
+    {
+        $this->candidaterAutresFormations = $candidaterAutresFormations;
+
+        return $this;
+    }
+
+    public function isStageEntreprise(): ?bool
+    {
+        return $this->stageEntreprise;
+    }
+
+    public function setStageEntreprise(?bool $stageEntreprise): self
+    {
+        $this->stageEntreprise = $stageEntreprise;
+
+        return $this;
+    }
+
+    public function isEtreBts(): ?bool
+    {
+        return $this->etreBts;
+    }
+
+    public function setEtreBts(?bool $etreBts): self
+    {
+        $this->etreBts = $etreBts;
+
+        return $this;
+    }
+
+    public function getContactEntreprise(): ?string
+    {
+        return $this->contactEntreprise;
+    }
+
+    public function setContactEntreprise(?string $contactEntreprise): self
+    {
+        $this->contactEntreprise = $contactEntreprise;
+
+        return $this;
+    }
+
 }
