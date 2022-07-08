@@ -22,10 +22,15 @@ class UserCrudController extends AbstractCrudController
     // configureActions to show properties in the list view of a user
     public function configureActions(Actions $actions): Actions
     {
+        //$actions->add(Crud::PAGE_INDEX, Action::DETAIL);
+        // add a new action modify the user's roles
         return $actions -> add(Crud::PAGE_INDEX, Action::DETAIL);
     }
 
-    /**
+
+
+
+/**
     public function configureFields(string $pageName): iterable
     {
         // if admin, show only nom, prenom, email
@@ -48,6 +53,7 @@ class UserCrudController extends AbstractCrudController
             ];
         }
     }
-     */
+ */
+
 }
 

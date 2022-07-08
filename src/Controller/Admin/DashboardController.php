@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -15,6 +16,11 @@ class DashboardController extends AbstractDashboardController
 {
     private $userRepository;
 
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->userRepository = $entityManager->getRepository(User::class);
+    }
+
     /**
      * @Route("/admin", name="admin")
      * @Security("is_granted('ROLE_ADMIN')")
@@ -22,7 +28,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         return $this -> render('bundles/EasyAdminBundle/welcome.html.twig', [
-            'countAllUser' => [],
+            'countAllUser' => $this -> userRepository -> countAllUser()
 
         ]);
     }
@@ -36,7 +42,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('FormulaireMiage');
+            ->setTitle('Administration du site');
     }
 
     public function configureMenuItems(): iterable

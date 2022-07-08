@@ -134,8 +134,10 @@ class UserController extends AbstractController
             try {
                 $em->persist($user);
                 $em->flush();
+                // if everything is ok, redirect to the next step
+                return $this->redirectToRoute('app_formulaire_2', ['user' => $user->getId()]);
             } catch (OptimisticLockException $e) {
-                return $this->render('user/index.html.twig', [
+                return $this->render('user/user.html.twig', [
                     'form' => $form->createView(),
                     'error' => 'Une erreur est survenue lors de la mise à jour de vos informations. Veuillez réessayer.',
                 ]);
@@ -144,7 +146,7 @@ class UserController extends AbstractController
 
         $formView = $form->createView();
 
-        return $this->render('user/index.html.twig', [
+        return $this->render('user/user.html.twig', [
             'formulaireForm' => $formView,
         ]);
     }

@@ -1,0 +1,20 @@
+<main>
+    <div class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-8 col-md-8 mx-auto">
+                <h1 class="display-4"></h1>
+
+                <h1 class="fw-light">Votre formulaire a bien été transmise ! A bientôt </h1>
+                <p class="lead text-muted">{{ app.user.nom }} {{ app.user.prenom }}, vous pouvez désormais vous déconnecter de votre compte.</p>
+                <p>
+                    <a href="{{ path('app_logout') }}" class="btn btn-primary my-2">Déconnexion</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-8 mx-auto">
+        <img src="{{ asset('img/farewell.jpg') }}" alt="logo" class="img-fluid">
+    </div>
+
+
+</main>
